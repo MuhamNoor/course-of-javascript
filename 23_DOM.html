@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Language List</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+</head>
+<body>
+    <style>
+        body {
+            background-color: black;
+            color: antiquewhite;
+            font-family: Arial, sans-serif;
+        }
+    </style>
+
+    <ul class="language">
+        <li>JavaScript</li>
+    </ul>
+
+    <script>
+        // function addlanguage(languagename) {
+        //     const li = document.createElement('li');
+        //     li.innerHTML = languagename; // ✅ use the variable
+        //     document.querySelector('.language').appendChild(li);
+        // }
+        // addlanguage('Python');
+        // addlanguage('C++');
+        // addlanguage('Java');
+
+
+//     This method is Optemized 
+        function AddOptlnguage(languagename) {
+            const li = document.createElement('li')
+            li.appendChild(document.createTextNode(languagename))
+            document.querySelector('.language').appendChild(li)
+        }
+         AddOptlnguage('Python');
+        AddOptlnguage('php++');
+        AddOptlnguage('typescript');
+
+        //  Edit li
+
+        const secondlanguage = document.querySelector('li:nth-child(2)')
+        const newli = document.createElement('li')
+        newli.textContent = 'Mojo'
+        secondlanguage.replaceWith(newli)
+
+//      replace javascript to typesctipt li
+
+const firstlanguage = document.querySelector('li:first-Child')
+firstlanguage.outerHTML = '<li>typescript</li>'
+
+
+        // remove last li     typescript
+          //                  Mojo
+         //                   php++
+         //                   typescript
+
+const lastlanguage = document.querySelector('li:last-child')
+lastlanguage.remove()
+
+    </script>
+
+
+</body>
+</html>

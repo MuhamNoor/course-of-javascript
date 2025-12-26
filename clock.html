@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" type="text/css" href="../styles.css" />
+    <title>Your Local Time</title>
+   <style>
+  /* Body with dark background and subtle animated gradient */
+  body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background: linear-gradient(270deg, #0f0c29, #302b63, #24243e);
+    background-size: 600% 600%;
+    animation: gradientBG 15s ease infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Arial', sans-serif;
+    color: #fff;
+    overflow: hidden;
+  }
+
+  @keyframes gradientBG {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+  }
+
+  .center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #clock {
+    font-size: 60px;
+    font-weight: bold;
+    color: #0ff;
+    padding: 30px 60px;
+    border-radius: 15px;
+    text-align: center;
+    text-shadow: 
+      0 0 5px #0ff,
+      0 0 10px #0ff,
+      0 0 20px #0ff,
+      0 0 40px #0ff,
+      0 0 80px #0ff;
+    background: rgba(0,0,0,0.3);
+    border: 2px solid #0ff;
+    box-shadow: 0 0 20px #0ff, 0 0 40px #0ff;
+    transition: all 0.3s ease;
+  }
+
+  #clock:hover {
+    text-shadow: 
+      0 0 10px #0ff,
+      0 0 20px #0ff,
+      0 0 40px #0ff,
+      0 0 80px #0ff,
+      0 0 160px #0ff;
+    box-shadow: 0 0 40px #0ff, 0 0 80px #0ff;
+    transform: scale(1.1);
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    #clock {
+      font-size: 50px;
+      padding: 25px 50px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    #clock {
+      font-size: 36px;
+      padding: 15px 30px;
+    }
+  }
+</style>
+  </head>
+  <body>
+
+    <div class="center">
+      <div id="banner"><span>Your local time</span></div>
+      <div id="clock"></div>
+    </div>
+    <script>
+      
+        const clock = document.querySelector('#clock')
+        setInterval(function(){
+            const date = new Date()
+            clock.innerHTML = date.toLocaleTimeString()
+        },1000)
+        
+    </script>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+

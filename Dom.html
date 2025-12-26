@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+      <style>
+        .bulb{
+           height: 300px;
+           width: 300px;
+           border-radius: 50%;
+           border: 4px solid black;
+        }
+        .btn{
+            margin: 50px;
+        }
+    </style>
+</head>
+<body>
+    
+
+<div class="bulb">
+
+</div>
+<button class="btn">Click ON</button>
+<!-- <button class="btn2">Click OFF</button> -->
+
+
+    <script>
+// let bulb = document.querySelector('.bulb')
+// let btn1 = document.querySelector('.btn')
+// let btn2 = document.querySelector('.btn2')
+//         btn1.addEventListener('click', function () {
+//             bulb.style.backgroundColor = "yellow"
+//         })
+//         btn2.addEventListener('click', function () {
+//             bulb.style.backgroundColor = 'transparent'
+//         })
+    let bulb = document.querySelector('.bulb')
+    let btn = document.querySelector('.btn')
+    let again = 0
+
+    btn.addEventListener('click', function () {
+        if (again === 0) {
+            bulb.style.backgroundColor = 'yellow'
+            again = 1
+        }else{
+            bulb.style.backgroundColor = "transparent"
+            
+            again = 0
+        }
+    })
+
+             
+    </script>  
+</body>
+</html>

@@ -1,0 +1,201 @@
+<!-- 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Color Boxes</title>
+<style>
+.button {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    line-height: 100px;
+    text-align: center;
+    font-weight: bold;
+    color: white;
+}
+#gray { background-color: gray; }
+#green { background-color: green; }
+#blue { background-color: blue; }
+#pink { background-color: pink; }
+</style>
+<script>
+const buttons = document.querySelectorAll('.button');
+const body = document.body
+buttons.forEach( function ( button ){
+    console.log(button);
+    button.addEventListener( 'click', function ( e ){
+        console.log( e) ;
+        console.log(e.target);
+        // if (e.target.id === 'gray') {
+        //     body.style.backgroundColor = e.target.id;
+        // }
+        // if (e.target.id === 'green') {
+        //     body.style.backgroundColor = e.target.id;
+        // }
+        // if (e.target.id === 'blue') {
+        //     body.style.backgroundColor = e.target.id;
+        // }
+        // if (e.target.id === 'pink') {
+        //     body.style.backgroundColor = e.target.id;
+        // }
+    });
+});
+</script>
+</head>
+<body>
+<h1>Color Scheme Switcher</h1>
+<span class="button" id="gray">Gray</span>
+<span class="button" id="green">Green</span>
+<span class="button" id="blue">Blue</span>
+<span class="button" id="pink">Pink</span>
+
+ <h2>Try Clicking on onefo the obove to change the background coloro of this pagr</h2>
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Color Boxes</title>
+
+<style>
+  body {
+    background-color: #111; /* Dark background for neon effect */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+
+  .heading {
+    text-align: center;
+    margin: 30px 10px 20px;
+    font-size: 32px;
+    color: #fff;
+    text-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
+  }
+
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; /* wraps buttons on small screens */
+    gap: 20px;
+    padding: 20px;
+  }
+
+  .button {
+    width: 120px;
+    height: 120px;
+    border-radius: 15px;
+    cursor: pointer;
+    border: 2px solid #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 16px;
+    color: #fff;
+    text-align: center;
+    text-shadow: 0 0 5px #fff;
+    box-shadow: 0 0 10px #fff, 0 0 20px #fff;
+    transition: all 0.3s ease;
+  }
+
+  .button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px #fff, 0 0 40px #fff, 0 0 60px #fff;
+  }
+
+  /* Neon colors */
+  #gray {
+    background-color: #888;
+    box-shadow: 0 0 10px #aaa, 0 0 20px #888;
+  }
+
+  #green {
+    background-color: #0f0;
+    color: #000;
+    box-shadow: 0 0 10px #0f0, 0 0 20px #0f0;
+  }
+
+  #blue {
+    background-color: #0ff;
+    color: #000;
+    box-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
+  }
+
+  #pink {
+    background-color: #ff1493;
+    color: #fff;
+    box-shadow: 0 0 10px #ff1493, 0 0 20px #ff1493;
+  }
+
+  #yellow {
+    background-color: #ffd700;
+    color: #000;
+    box-shadow: 0 0 10px #ffd700, 0 0 20px #ffd700;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .button {
+      width: 100px;
+      height: 100px;
+      font-size: 14px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .button {
+      width: 80px;
+      height: 80px;
+      font-size: 12px;
+    }
+  }
+</style>
+
+</head>
+<body>
+
+<h1 class="heading">Color Scheme Switcher</h1>
+<div class="container">
+<span class="button" id="gray">Gray</span>
+<span class="button" id="green">Green</span>
+<span class="button" id="blue">Blue</span>
+<span class="button" id="pink">Pink</span>
+<span class="button" id="yellow">Yellow</span>
+</div>
+<h2 class="heading">Try clicking one of the above to change the background color of this page</h2>
+<script>
+
+const buttons = document.querySelectorAll('.button');
+const body = document.querySelector("body");
+buttons.forEach(function (button) {
+  button.addEventListener('click', function () {
+    body.style.backgroundColor = button.id;
+     if (e.target.id === 'gray') {
+            body.style.backgroundColor = e.target.id;
+        }
+        if (e.target.id === 'green') {
+            body.style.backgroundColor = e.target.id;
+        }
+        if (e.target.id === 'blue') {
+            body.style.backgroundColor = e.target.id;
+        }
+        if (e.target.id === 'pink') {
+            body.style.backgroundColor = e.target.id;
+        }
+  });
+});
+
+</script>
+</body>
+</html>

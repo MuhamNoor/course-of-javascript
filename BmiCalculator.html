@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>BMI CALCULATOR</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+</head>
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+
+  background-image: url('https://images.unsplash.com/photo-1517832207067-4db24a2ae47c');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+
+  animation: fadeIn 1s ease-in-out;
+}
+
+.container {
+  width: 90%;
+  max-width: 900px;
+  padding: 40px 20px;
+  margin: 40px auto;
+
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+
+  border: 2px solid #0ff;
+  box-shadow: 0 0 20px #0ff, 0 0 40px rgba(0, 255, 255, 0.3);
+
+  animation: neonGlow 3s infinite alternate ease-in-out;
+}
+
+@keyframes neonGlow {
+  0% { box-shadow: 0 0 20px #0ff; }
+  100% { box-shadow: 0 0 40px #0ff, 0 0 80px #00e1ff; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+h1 {
+  color: #0ff;
+  text-shadow: 0 0 20px #0ff;
+  text-align: center;
+  font-size: 35px;
+}
+
+form p {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+label {
+  color: #fff;
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+
+input {
+  width: 100%;
+  max-width: 350px;
+  height: 40px;
+  border-radius: 8px;
+  border: none;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  box-shadow: inset 0 0 10px #0ff;
+  outline: none;
+}
+
+button {
+  width: 200px;
+  height: 45px;
+  background-color: #00f7ff;
+  border-radius: 10px;
+  border: none;
+  color: #000;
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: 0 0 20px #00f7ff;
+  transition: 0.3s;
+  display: block;
+  margin: 20px auto;
+}
+
+button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 40px #00f7ff;
+}
+
+#results {
+  font-size: 26px;
+  margin-top: 15px;
+  text-align: center;
+  color: #0ff;
+  text-shadow: 0 0 10px #00e1ff;
+}
+
+#weight-guide {
+  margin-top: 20px;
+  text-align: center;
+  color: #fff;
+  
+}
+
+#weight-guide h3 {
+  color: #0ff;
+  text-shadow: 0 0 15px #00e1ff;
+}
+
+/* -----------------------------------------
+   RESPONSIVE BREAKPOINTS
+------------------------------------------ */
+
+/* Tablet (768px) */
+@media (max-width: 768px) {
+  .container {
+    padding: 30px 20px;
+  }
+
+  h1 {
+    font-size: 30px;
+  }
+
+  label {
+    font-size: 18px;
+  }
+
+  input {
+    height: 38px;
+  }
+
+  button {
+    width: 180px;
+    height: 42px;
+  }
+}
+
+/* Mobile (480px) */
+@media (max-width: 480px) {
+  .container {
+    padding: 20px 15px;
+    width: 92%;
+  }
+
+  h1 {
+    font-size: 26px;
+  }
+
+  label {
+    font-size: 16px;
+  }
+
+  input {
+    height: 35px;
+    font-size: 14px;
+  }
+
+  button {
+    width: 160px;
+    height: 40px;
+    font-size: 18px;
+  }
+
+  #results {
+    font-size: 22px;
+  }
+}
+p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+</style>
+
+<body>
+    <div class="container">
+      <h1>BMI Calculator</h1>
+      <form>
+        <p><label class="height">Height in CM: </label><input type="text" id="height" /></p>
+        <p><label class="weight">Weight in KG: </label><input type="text" id="weight" /></p>
+        <button>Calculate</button>
+        <div id="results"></div>
+        <div id="weight-guide">
+          <h3>BMI Weight Guide</h3>
+          <p>Under Weight = Less than 18.6</p>
+          <p>Normal Range = 18.6 and 24.9</p>
+          <p>Overweight = Greater than 24.9</p>
+        </div>
+      </form>
+    </div>
+
+    <script> 
+const form = document.querySelector('form')
+form.addEventListener('submit',function(e){
+  e.preventDefault()
+  const height = parseInt(document.querySelector('#height').value)
+  const weight = parseInt(document.querySelector('#weight').value)
+  const results = document.querySelector('#results')
+  if (height === '' || height < 0 || isNaN(height)) {
+    results.innerHTML = `please give a valid information${height}`
+  }
+   else if (weight === '' || weight < 0 || isNaN(weight)) {
+    results.innerHTML = `please give a valid information ${weight}`
+  }
+  else{
+    const bmi = (weight / ((height * height) / 10000)).toFixed(2)
+    results.innerHTML = `<span>${bmi}</span>`
+  
+    // Show BMI and category
+   if (bmi < 18.6 ) {
+    results.innerHTML = `Youre Bmi is <span>${bmi}</span> - Your UnderWeight`
+  }
+  else if (bmi >= 18.6 && bmi <= 24.5 ) {
+    results.innerHTML = `Youre Bmi is <span>${bmi}</span> - Your Normal`
+  }
+   else {
+    results.innerHTML = `Youre Bmi is <span>${bmi}</span> - Your overWeight`
+  }
+}
+})
+
+</script>
+
+</body>
+</html>
